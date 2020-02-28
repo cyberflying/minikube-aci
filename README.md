@@ -1,6 +1,13 @@
 # minikube-aci
 minikube using virtual kubelet extend pods to ACI
 
+- [minikube-aci](#minikube-aci)
+- [环境准备](#%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87)
+- [minikube启动，创建kubernetes的VM](#minikube%e5%90%af%e5%8a%a8%e5%88%9b%e5%bb%bakubernetes%e7%9a%84vm)
+- [准备Azure资源](#%e5%87%86%e5%a4%87azure%e8%b5%84%e6%ba%90)
+- [helm安装virtual kubelet的chart](#helm%e5%ae%89%e8%a3%85virtual-kubelet%e7%9a%84chart)
+- [测试ACI](#%e6%b5%8b%e8%af%95aci)
+
 # 环境准备
 * win10 pro或企业版，启用hyper-v
 * Azure账号
@@ -87,7 +94,7 @@ kubectl cluster-info
 
 准备helm的命令参数，创建sp时返回的信息中clientId即appId，clientKey即password。
 
-另外chart文件https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz在某些地方访问github的问题可能下载失败，可提前自行科学下载到本地（你懂得），指定本地文件路径即可：
+另外chart文件[https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz](https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz)在某些地方访问github的问题可能下载失败，可提前自行科学下载到本地（你懂得），指定本地文件路径即可：
 ```CMD
 helm install --name vk-aci https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz ^
   --set provider=azure ^
@@ -211,7 +218,7 @@ az container list -g aci-group -o table
 ```
 
 再次使用nginx部署多个replica进行测试：
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
