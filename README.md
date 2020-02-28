@@ -12,7 +12,7 @@ minikube using virtual kubelet extend pods to ACI
 Tips：
 * helm版本用的v2，minikube start时指定kubernetes版本为v1.15.x，本例中用的是1.15.7，helm版本用的v2.16.3。minikube本身可以使用目前的最新版本v1.7.3，重要的是指定kubernetes的版本。
 
-主要因用到的virtual kubelet的chart： https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz 在网站上看到的日期已经是“16 months ago”了，并且在使用helm 3 install过程中报错: 
+主要因用到的virtual kubelet的chart： [https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz](https://github.com/virtual-kubelet/virtual-kubelet/raw/master/charts/virtual-kubelet-latest.tgz) 在网站上看到的日期已经是“16 months ago”了，并且在使用helm 3 install过程中报错: 
 > Error: unable to build kubernetes objects from release manifest: unable to recognize "": no matches for kind "Deployment" in version "extensions/v1beta1"
 
 使用上述版本，可正常完成。
@@ -75,7 +75,7 @@ kubectl get node
 kubectl get pod
 ```
 
-helm初始化，同时指定repo。推荐大家Azure国内的镜像站点：https://mirror.azure.cn/ 值得拥有
+helm初始化，同时指定repo。推荐大家Azure国内的镜像站点：[https://mirror.azure.cn/](https://mirror.azure.cn/) 值得拥有
 ```
 helm init --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.16.3 --stable-repo-url https://mirror.azure.cn/kubernetes/charts/
 ```
@@ -280,9 +280,9 @@ apt-get update && apt-get install -y curl
 curl -L http://<lb-ip>:8080
 ```
 
-这个功能适合本地K8S cluster面临急需扩容的需求时，可以将Azure上容器实例ACI作为一个云上的资源池，秒级快速的进行扩展，以便不影响业务运行，适合在ACI上部署计算密集型的任务。
+这个功能适合本地K8S cluster面临急需扩容的需求时，可以将Azure上容器实例ACI作为一个云上的资源池，秒级快速的进行扩展，以便不影响业务运行，适合在ACI上部署偏计算型的任务。
 
 参考文档：
-* https://github.com/virtual-kubelet/virtual-kubelet
-* https://github.com/virtual-kubelet/azure-aci
-* https://docs.microsoft.com/azure/aks/virtual-nodes-cli
+* [https://github.com/virtual-kubelet/virtual-kubelet](https://github.com/virtual-kubelet/virtual-kubelet)
+* [https://github.com/virtual-kubelet/azure-aci](https://github.com/virtual-kubelet/azure-aci)
+* [https://docs.microsoft.com/azure/aks/virtual-nodes-cli](https://docs.microsoft.com/azure/aks/virtual-nodes-cli)
