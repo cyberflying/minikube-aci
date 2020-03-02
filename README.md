@@ -1,7 +1,5 @@
-# minikube-aci
 minikube using virtual kubelet extend pods to ACI
 
-- [minikube-aci](#minikube-aci)
 - [环境准备](#%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87)
 - [minikube启动，创建kubernetes的VM](#minikube%e5%90%af%e5%8a%a8%e5%88%9b%e5%bb%bakubernetes%e7%9a%84vm)
 - [准备Azure资源](#%e5%87%86%e5%a4%87azure%e8%b5%84%e6%ba%90)
@@ -288,6 +286,8 @@ curl -L http://<lb-ip>:8080
 ```
 
 这个功能适合本地K8S cluster面临急需扩容的需求时，可以将Azure上容器实例ACI作为一个云上的资源池，秒级快速的进行扩展，以便不影响业务运行，适合在ACI上部署偏计算型的任务。
+
+同时录制了动手实验的视频，供大家参考，[请点这里](https://www.bilibili.com/video/av92478662?pop_share=1)。
 
 参考文档：
 * [https://github.com/virtual-kubelet/virtual-kubelet](https://github.com/virtual-kubelet/virtual-kubelet)
